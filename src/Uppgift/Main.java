@@ -18,12 +18,12 @@ public class Main {
         list.add(Meatloaf);
         list.add(Putte);
 
-        //sparar arrayListen i valen som användaren kan välja mellan
-        Växter[] options = list.toArray(Växter[]::new);
+        //konverterar arrayListen till en array
+        Växter[] växtVal = list.toArray(Växter[]::new);
 
-        //castar JOptionPanes till Växter så att jag kan få ut alla metoder i växter
+        //castar JOptionPanes till Växter så att jag kan få ut alla metoder från växter
         Växter input = (Växter) JOptionPane.showInputDialog(null, "Which plant do you want to water?",
-                "Choose a plant", JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+                "Choose a plant", JOptionPane.QUESTION_MESSAGE, null, växtVal, växtVal[0]);
 
         //ser till så att det inte blir ett error meddelande om man klickar cancel eller på krysset
         if (input == null) {
@@ -31,9 +31,9 @@ public class Main {
         }
 
         //loopar igenom alla växter o skriver ut den som stämmer överens med vad användaren valde
-        for (int i = 0; i < options.length; i++) {
-            if(input.equals(options[i])) {
-                JOptionPane.showMessageDialog(null, options[i].printMe());
+        for (int i = 0; i < växtVal.length; i++) {
+            if(input.equals(växtVal[i])) {
+                JOptionPane.showMessageDialog(null, växtVal[i].printMe());
             }
         }
 
